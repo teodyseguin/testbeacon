@@ -18,6 +18,7 @@ let testBeaconApp = (function() {
 	}
 
 	function runTestBeacon() {
+		alert('runTestBeacon()');
 		console.log('> runTestBeacon()');
 
 		// Client secretet:
