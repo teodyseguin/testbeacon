@@ -1,0 +1,79 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.bluecats.beacons": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.teody.testbeacon"
+        }
+    }
+}

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+	id="com.bluecats.beacons"
+	version="1.0.5">
+
+	<!-- This plugin requires Cordova version 3.1.0 or newer. -->
+	<engines>
+		<engine name="cordova" version=">=3.1.0" />
+	</engines>
+
+	<name>phonegap-plugin-bluecats</name>
+	<!--
+	<dependency id="org.apache.cordova.android-support-library" url="https://github.com/savs/android-support-library" /> 
+	-->
+	<js-module src="blueCatsSDKCDVPlugin.js" name="BlueCatsSDKCDVPlugin">
+		<clobbers target="com.bluecats.beacons" />
+	</js-module>
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="BlueCatsSDKCDVPlugin">
+				<param name="ios-package" value="BlueCatsSDKCDVPlugin"/>
+			</feature>
+		</config-file>
+
+		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+		  <string>Beacons customise the app experience for your location</string>
+		</config-file>
+
+		<header-file src="src/ios/BlueCatsSDKCDVPlugin.h" />
+		<source-file src="src/ios/BlueCatsSDKCDVPlugin.m" />
+
+		<framework src="Foundation.framework" />
+		<framework src="CoreData.framework" />
+		<framework src="AdSupport.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<framework src="CoreBluetooth.framework" />
+		<framework src="MobileCoreServices.framework" />
+		<framework src="CoreLocation.framework" />
+		<framework src="Security.framework" />
+		<framework src="CFNetwork.framework" />
+
+		<header-file src="src/ios/BlueCatsSDK/BlueCatsSDK.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCAddress.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCApp.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCBeacon.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCBeaconRegionVisit.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCBeaconVisit.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCBeaconDataSource.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCCategory.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCCategoryDataSource.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCCustomValue.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCEvent.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCEventManager.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCEventFilter.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCEventFilterContext.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCJSONModel.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCLocalNotification.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCLocalNotificationManager.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCMap.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCMapPoint.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCMicroLocationManager.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCMicroLocation.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCPoint.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCResource.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCSite.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCTriggeredEvent.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCTrigger.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCDefinitions.h" />
+		<header-file src="src/ios/BlueCatsSDK/BCJSONModel+BCCustomValueDataSource.h" />
+		<source-file src="src/ios/BlueCatsSDK/libBlueCatsSDK.a" framework="true" />
+
+	</platform>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BlueCatsSDKCDVPlugin">
+                <param name="android-package" value="com.blueCats.BlueCatsSDKCDVPlugin.BlueCatsSDKCDVPlugin"/>
+            </feature>
+        </config-file>
+
+	    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+	    	<activity android:name="com.blueCats.BlueCatsSDKCDVPlugin.BlueCatsSDKCDVPluginLocalNotificationReveiverActivity" android:launchMode="singleInstance" />
+<!--
+	    	<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+-->
+	        <service android:name="com.bluecats.sdk.BlueCatsSDKService" />
+
+	        <receiver android:name="com.bluecats.sdk.BlueCatsSDKServiceReceiver" >
+            	<intent-filter>
+                	<action android:name="android.intent.action.BOOT_COMPLETED" />
+            	</intent-filter>
+        	</receiver>
+	    </config-file>
+
+	    <config-file target="AndroidManifest.xml" parent="/manifest">
+	        <uses-permission android:name="android.permission.BLUETOOTH" />
+	        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	        <uses-permission android:name="android.permission.INTERNET" />
+	        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    		<uses-permission android:name="android.permission.WAKE_LOCK" />
+	    </config-file>
+		<framework src="push.gradle" custom="true" type="gradleReference" />
+        <framework src="com.android.support:support-v13:23+" />
+<!--
+		<framework src="com.google.android.gms:play-services:+" />
+-->
+	    <source-file src="src/android/BlueCatsSDKCDVPlugin.java" target-dir="src/com/blueCats/BlueCatsSDKCDVPlugin" />
+	    <source-file src="src/android/BlueCatsSDKCDVPluginLocalNotificationReveiverActivity.java" target-dir="src/com/blueCats/BlueCatsSDKCDVPlugin" />
+
+	    <source-file src="src/android/libs/arm64-v8a/libbluecats_sdk.so" target-dir="libs/arm64-v8a" /> 
+	    <source-file src="src/android/libs/armeabi/libbluecats_sdk.so" target-dir="libs/armeabi" /> 
+	    <source-file src="src/android/libs/armeabi-v7a/libbluecats_sdk.so" target-dir="libs/armeabi-v7a" /> 
+	    <source-file src="src/android/libs/mips/libbluecats_sdk.so" target-dir="libs/mips" /> 
+	    <source-file src="src/android/libs/mips64/libbluecats_sdk.so" target-dir="libs/mips64" /> 
+	    <source-file src="src/android/libs/x86/libbluecats_sdk.so" target-dir="libs/x86" /> 
+	    <source-file src="src/android/libs/x86_64/libbluecats_sdk.so" target-dir="libs/x86_64" /> 
+	    <source-file src="src/android/libs/bluecats_sdk.jar" target-dir="libs" /> 
+
+	    <source-file src="src/android/libs/gson-2.2.4.jar" target-dir="libs" />
+    </platform>
+    
+</plugin>
